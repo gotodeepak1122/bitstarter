@@ -2,7 +2,8 @@ var express = require('express');
 var fs =require('fs');
 var app = express.createServer(express.logger());
 app.get('/', function(request, response) {
-var bufout =fs.readFileSync("index.hmtl"); 
+
+var bufout =new Buffer(fs.readFileSync("index.html"),'utf-8'); 
  response.send(bufout.toString('utf-8'));
 });
 
